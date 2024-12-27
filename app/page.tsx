@@ -1,21 +1,14 @@
-import axios from 'axios'
 
-const response = await axios.get('http:localhost:3000/v1/details');
+import Link from 'next/link';
 
-const data = response.data;
-export default async function Page() {
+export default  function Page() {
   return (
     <div className='flex flex-col items-center justify-center h-screen'>
-      user page
-      <div>
-      {data.name}
+      <h1 className='text-2xl'>welcome to my page</h1>
+      <div className='flex space-x-4'>
+        <Link className='border m-2 p-2' href='/signin'>Sign in</Link>
+        <Link className='border m-2 p-2' href='/signup'>Sign up</Link>
       </div>
-      {data.email}
-      <div>
-        {data.password}
-      </div>
-      
-
     </div>
   );
 }
